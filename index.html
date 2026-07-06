@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mandy — Your AI That Gets Things Done</title>
+    <title>Mandy — Premium AI Assistant</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Lato:wght@400;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -12,45 +13,25 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
-            background: #0f0f23;
-            color: #fff;
-            overflow-x: hidden;
-        }
-
-        /* Animated background */
-        .animated-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(45deg, #0f0f23, #1a1a3f, #16213e, #0f3460);
-            background-size: 400% 400%;
-            animation: gradient 15s ease infinite;
-            z-index: -1;
-        }
-
-        @keyframes gradient {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+            font-family: 'Lato', sans-serif;
+            background: #0f1419;
+            color: #e8e8e8;
+            line-height: 1.8;
         }
 
         header {
-            background: rgba(15, 15, 35, 0.8);
-            backdrop-filter: blur(10px);
-            padding: 20px 0;
+            background: linear-gradient(135deg, #0f1419 0%, #1a2332 100%);
+            padding: 30px 0;
+            border-bottom: 2px solid #d4af37;
             position: sticky;
             top: 0;
             z-index: 100;
-            border-bottom: 1px solid rgba(79, 172, 254, 0.2);
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 40px;
         }
 
         nav {
@@ -60,195 +41,146 @@
         }
 
         .logo {
-            font-size: 32px;
-            font-weight: 800;
-            background: linear-gradient(135deg, #4faafe, #00d4ff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            letter-spacing: -1px;
+            font-family: 'Playfair Display', serif;
+            font-size: 36px;
+            font-weight: 900;
+            color: #d4af37;
+            letter-spacing: 2px;
         }
 
         nav ul {
             display: flex;
             list-style: none;
-            gap: 40px;
+            gap: 50px;
         }
 
         nav a {
             text-decoration: none;
-            color: #aaa;
-            font-weight: 500;
+            color: #b0b0b0;
+            font-weight: 700;
+            font-size: 14px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
             transition: color 0.3s;
             position: relative;
         }
 
         nav a:hover {
-            color: #4faafe;
-        }
-
-        nav a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: #4faafe;
-            transition: width 0.3s;
-        }
-
-        nav a:hover::after {
-            width: 100%;
+            color: #d4af37;
         }
 
         .hero {
-            padding: 120px 0;
+            padding: 140px 0;
             text-align: center;
-            position: relative;
-            z-index: 1;
+            background: linear-gradient(135deg, #0f1419 0%, #1a2332 50%, #0f1419 100%);
+            border-bottom: 1px solid #d4af37;
         }
 
-        .hero-badge {
-            display: inline-block;
-            background: rgba(79, 172, 254, 0.1);
-            border: 1px solid rgba(79, 172, 254, 0.3);
-            padding: 10px 20px;
-            border-radius: 30px;
-            margin-bottom: 30px;
-            font-size: 13px;
-            color: #4faafe;
-            font-weight: 600;
-            animation: float 3s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
+        .hero-subtitle {
+            color: #d4af37;
+            font-size: 14px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            font-weight: 700;
         }
 
         .hero h1 {
-            font-size: 64px;
+            font-family: 'Playfair Display', serif;
+            font-size: 72px;
             font-weight: 900;
-            margin-bottom: 20px;
+            margin-bottom: 30px;
+            color: #ffffff;
             line-height: 1.2;
-            background: linear-gradient(135deg, #ffffff, #4faafe);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: slideInDown 0.8s ease;
+            letter-spacing: -1px;
         }
 
         .hero p {
-            font-size: 20px;
-            color: #aaa;
-            margin-bottom: 50px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-            line-height: 1.6;
-            animation: slideInUp 0.8s ease 0.2s both;
+            font-size: 18px;
+            color: #a0a0a0;
+            max-width: 700px;
+            margin: 0 auto 50px;
+            line-height: 1.8;
         }
 
         .cta-buttons {
             display: flex;
-            gap: 20px;
+            gap: 30px;
             justify-content: center;
             flex-wrap: wrap;
-            animation: slideInUp 0.8s ease 0.4s both;
         }
 
         .btn {
-            padding: 16px 40px;
-            border-radius: 50px;
+            padding: 18px 50px;
             text-decoration: none;
-            font-weight: 600;
-            font-size: 16px;
+            font-weight: 700;
+            font-size: 14px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
             transition: all 0.3s;
-            border: 2px solid transparent;
             cursor: pointer;
+            border: 2px solid transparent;
         }
 
         .btn-primary {
-            background: linear-gradient(135deg, #4faafe, #00d4ff);
-            color: #0f0f23;
-            box-shadow: 0 10px 30px rgba(79, 172, 254, 0.3);
+            background: #d4af37;
+            color: #0f1419;
+            border: 2px solid #d4af37;
         }
 
         .btn-primary:hover {
+            background: transparent;
+            color: #d4af37;
             transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(79, 172, 254, 0.5);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
         }
 
         .btn-secondary {
             background: transparent;
-            color: #4faafe;
-            border: 2px solid #4faafe;
+            color: #d4af37;
+            border: 2px solid #d4af37;
         }
 
         .btn-secondary:hover {
-            background: rgba(79, 172, 254, 0.1);
+            background: #d4af37;
+            color: #0f1419;
             transform: translateY(-3px);
-        }
-
-        @keyframes slideInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes slideInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
         }
 
         .features {
             padding: 120px 0;
-            position: relative;
-            z-index: 1;
         }
 
-        .section-title {
+        .section-header {
             text-align: center;
             margin-bottom: 80px;
         }
 
-        .section-title h2 {
-            font-size: 48px;
-            margin-bottom: 15px;
-            background: linear-gradient(135deg, #ffffff, #4faafe);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+        .section-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 52px;
+            font-weight: 900;
+            margin-bottom: 20px;
+            color: #ffffff;
         }
 
-        .section-title p {
-            color: #aaa;
+        .section-header p {
             font-size: 18px;
+            color: #a0a0a0;
+            max-width: 600px;
+            margin: 0 auto;
         }
 
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
         }
 
         .feature-card {
-            background: linear-gradient(135deg, rgba(79, 172, 254, 0.05), rgba(0, 212, 255, 0.05));
-            border: 1px solid rgba(79, 172, 254, 0.2);
-            padding: 40px;
-            border-radius: 15px;
+            background: linear-gradient(135deg, #1a2332 0%, #0f1419 100%);
+            border: 1px solid #d4af37;
+            padding: 50px;
             transition: all 0.3s;
             position: relative;
             overflow: hidden;
@@ -258,115 +190,121 @@
             content: '';
             position: absolute;
             top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(79, 172, 254, 0.1), transparent);
-            transition: left 0.5s;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: #d4af37;
+            transform: scaleX(0);
+            transition: transform 0.3s;
+            transform-origin: left;
         }
 
         .feature-card:hover::before {
-            left: 100%;
+            transform: scaleX(1);
         }
 
         .feature-card:hover {
             transform: translateY(-10px);
-            border-color: rgba(79, 172, 254, 0.5);
-            box-shadow: 0 20px 40px rgba(79, 172, 254, 0.2);
+            box-shadow: 0 20px 50px rgba(212, 175, 55, 0.2);
         }
 
         .feature-icon {
             font-size: 48px;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
 
         .feature-card h3 {
-            font-size: 20px;
-            margin-bottom: 12px;
-            color: #4faafe;
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #d4af37;
         }
 
         .feature-card p {
-            color: #aaa;
-            line-height: 1.6;
+            color: #a0a0a0;
+            font-size: 16px;
+            line-height: 1.8;
         }
 
-        .stats {
-            padding: 80px 0;
+        .stats-section {
+            padding: 100px 0;
+            border-top: 1px solid #d4af37;
+            border-bottom: 1px solid #d4af37;
+        }
+
+        .stats-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 60px;
             text-align: center;
-            position: relative;
-            z-index: 1;
         }
 
         .stat-item h3 {
-            font-size: 48px;
-            background: linear-gradient(135deg, #4faafe, #00d4ff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            font-family: 'Playfair Display', serif;
+            font-size: 56px;
+            color: #d4af37;
             margin-bottom: 10px;
+            font-weight: 900;
         }
 
         .stat-item p {
-            color: #aaa;
-            font-size: 14px;
+            color: #a0a0a0;
+            font-size: 16px;
+            letter-spacing: 1px;
         }
 
-        .cta-final {
-            background: linear-gradient(135deg, rgba(79, 172, 254, 0.1), rgba(0, 212, 255, 0.05));
-            border: 1px solid rgba(79, 172, 254, 0.3);
-            padding: 100px 0;
+        .cta-section {
+            padding: 120px 0;
             text-align: center;
-            border-radius: 20px;
-            margin: 80px 0;
-            position: relative;
-            z-index: 1;
+            background: linear-gradient(135deg, #1a2332 0%, #0f1419 100%);
+            border-top: 1px solid #d4af37;
         }
 
-        .cta-final h2 {
-            font-size: 48px;
-            margin-bottom: 20px;
-            background: linear-gradient(135deg, #ffffff, #4faafe);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+        .cta-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 52px;
+            margin-bottom: 25px;
+            color: #ffffff;
         }
 
-        .cta-final p {
+        .cta-section p {
             font-size: 18px;
-            color: #aaa;
-            margin-bottom: 40px;
+            color: #a0a0a0;
+            margin-bottom: 50px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         footer {
-            border-top: 1px solid rgba(79, 172, 254, 0.2);
-            padding: 40px 0;
+            background: linear-gradient(135deg, #0f1419 0%, #1a2332 100%);
+            border-top: 2px solid #d4af37;
+            padding: 50px 0;
             text-align: center;
-            color: #666;
-            position: relative;
-            z-index: 1;
+            color: #707070;
         }
 
         footer a {
-            color: #4faafe;
+            color: #d4af37;
             text-decoration: none;
             transition: color 0.3s;
         }
 
         footer a:hover {
-            color: #00d4ff;
+            color: #ffffff;
         }
 
         @media (max-width: 768px) {
             .hero h1 {
-                font-size: 36px;
+                font-size: 40px;
             }
 
             nav ul {
                 gap: 20px;
+            }
+
+            .section-header h2 {
+                font-size: 36px;
             }
 
             .cta-buttons {
@@ -377,19 +315,21 @@
                 width: 100%;
                 text-align: center;
             }
+
+            .container {
+                padding: 0 20px;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="animated-bg"></div>
-
     <header>
         <div class="container">
             <nav>
-                <div class="logo">⚡ Mandy</div>
+                <div class="logo">MANDY</div>
                 <ul>
                     <li><a href="#features">Features</a></li>
-                    <li><a href="#stats">Stats</a></li>
+                    <li><a href="#stats">Performance</a></li>
                     <li><a href="https://github.com/Manav-Patil-10/personal-ai-os">GitHub</a></li>
                 </ul>
             </nav>
@@ -398,15 +338,15 @@
 
     <section class="hero">
         <div class="container">
-            <div class="hero-badge">✨ Your Personal AI Assistant</div>
-            <h1>Get Things Done with AI That Actually Learns From You</h1>
-            <p>Mandy reads your emails, manages your calendar, researches topics, organizes files, and remembers everything — all running on your computer, all yours.</p>
+            <div class="hero-subtitle">Premium AI Assistant</div>
+            <h1>Your Personal Operating System</h1>
+            <p>An intelligent assistant that remembers everything, manages your life, and respects your privacy. Enterprise-grade AI for the individual.</p>
             <div class="cta-buttons">
                 <a href="https://github.com/Manav-Patil-10/personal-ai-os/releases/download/v1.0.0/Mandy-Setup.exe" class="btn btn-primary">
-                    ⬇️ Download Now (Windows)
+                    Download Now
                 </a>
                 <a href="https://github.com/Manav-Patil-10/personal-ai-os" class="btn btn-secondary">
-                    View on GitHub
+                    View Repository
                 </a>
             </div>
         </div>
@@ -414,90 +354,92 @@
 
     <section class="features" id="features">
         <div class="container">
-            <div class="section-title">
-                <h2>Everything You Need in One Assistant</h2>
-                <p>From email to calendars to file organization — Mandy does it all</p>
+            <div class="section-header">
+                <h2>Enterprise Features, Personal Touch</h2>
+                <p>Every feature built to enhance your productivity and protect your privacy</p>
             </div>
             <div class="features-grid">
                 <div class="feature-card">
                     <div class="feature-icon">📧</div>
-                    <h3>Smart Email</h3>
-                    <p>Read, summarize, and draft replies. They save automatically to your Gmail drafts.</p>
+                    <h3>Email Intelligence</h3>
+                    <p>Master your inbox with AI-powered summarization, intelligent drafting, and automatic organization.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">📅</div>
-                    <h3>Calendar Magic</h3>
-                    <p>Check your schedule, create events with just words. "Meeting with John tomorrow at 3pm"</p>
+                    <h3>Calendar Mastery</h3>
+                    <p>Manage your time effortlessly. Create events, check schedules, and optimize your day.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">🔍</div>
-                    <h3>Research Agent</h3>
-                    <p>Ask her to research anything. She finds, summarizes, and saves to your notes automatically.</p>
+                    <h3>Research Engine</h3>
+                    <p>Advanced web research with intelligent summarization. Knowledge saved automatically to your vault.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">✅</div>
-                    <h3>Task Master</h3>
-                    <p>Add tasks naturally. "Add a task to review code". She tracks and reminds you.</p>
+                    <h3>Task Orchestration</h3>
+                    <p>Natural language task management with intelligent reminders and progress tracking.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">📁</div>
-                    <h3>Auto Organizer</h3>
-                    <p>Your Downloads folder is chaos? Say the word. She auto-sorts everything into categories.</p>
+                    <h3>File Organization</h3>
+                    <p>Automatic file categorization and organization. Chaos becomes structure instantly.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">🧠</div>
-                    <h3>Remembers Everything</h3>
-                    <p>Every conversation saved. She learns from your notes and habits. Your personal AI gets smarter.</p>
+                    <h3>Persistent Memory</h3>
+                    <p>Every conversation remembered. Every preference learned. Your AI gets smarter with time.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">⏰</div>
-                    <h3>Smart Reminders</h3>
-                    <p>Hourly task reminders. Daily end-of-day reviews. She tracks your progress from day 1.</p>
+                    <h3>Intelligent Reminders</h3>
+                    <p>Hourly task reminders and daily reviews. Progress tracked from day one with detailed analytics.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">🔐</div>
-                    <h3>100% Your Data</h3>
-                    <p>Runs on your computer. Open source. No cloud snooping. It's truly yours.</p>
+                    <h3>Privacy First</h3>
+                    <p>100% open source. Runs locally on your machine. Your data never leaves your computer.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="stats" id="stats">
+    <section class="stats-section" id="stats">
         <div class="container">
-            <div class="stat-item">
-                <h3>8</h3>
-                <p>Complete Phases</p>
-            </div>
-            <div class="stat-item">
-                <h3>6+</h3>
-                <p>Jarvis Features</p>
-            </div>
-            <div class="stat-item">
-                <h3>100%</h3>
-                <p>Open Source</p>
-            </div>
-            <div class="stat-item">
-                <h3>Free</h3>
-                <p>Forever</p>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h3>8</h3>
+                    <p>Complete Phases</p>
+                </div>
+                <div class="stat-item">
+                    <h3>6+</h3>
+                    <p>Premium Features</p>
+                </div>
+                <div class="stat-item">
+                    <h3>100%</h3>
+                    <p>Open Source</p>
+                </div>
+                <div class="stat-item">
+                    <h3>∞</h3>
+                    <p>Free Forever</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <section class="cta-final">
+    <section class="cta-section">
         <div class="container">
-            <h2>Ready to Transform How You Work?</h2>
-            <p>Download Mandy today and meet the AI that actually gets things done</p>
+            <h2>Transform Your Productivity</h2>
+            <p>Experience the future of personal AI. Download Mandy today and take control of your digital life.</p>
             <a href="https://github.com/Manav-Patil-10/personal-ai-os/releases/download/v1.0.0/Mandy-Setup.exe" class="btn btn-primary">
-                ⬇️ Download Mandy Now
+                Download Mandy
             </a>
         </div>
     </section>
 
     <footer>
         <div class="container">
-            <p>&copy; 2026 Mandy — Your Personal AI OS</p>
-            <p><a href="https://github.com/Manav-Patil-10/personal-ai-os">GitHub</a> • <a href="https://github.com/Manav-Patil-10">Manav Patil</a></p>
+            <p>&copy; 2026 Mandy — Premium Personal AI</p>
+            <p><a href="https://github.com/Manav-Patil-10/personal-ai-os">GitHub</a> • <a href="https://github.com/Manav-Patil-10">Creator</a></p>
         </div>
     </footer>
 </body>
