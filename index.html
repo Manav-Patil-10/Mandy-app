@@ -12,40 +12,25 @@
             box-sizing: border-box;
         }
 
-        html {
-            scroll-behavior: smooth;
-        }
-
         body {
             font-family: 'Lato', sans-serif;
             background: #0f1419;
             color: #e8e8e8;
-            line-height: 1.8;
-            overflow-x: hidden;
-        }
-
-        header {
-            background: linear-gradient(135deg, #0f1419 0%, #1a2332 100%);
-            padding: 30px 0;
-            border-bottom: 2px solid #d4af37;
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 100;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
-        }
-
-        header.scrolled {
-            padding: 15px 0;
-            background: linear-gradient(135deg, #0f1419 0%, #1a2332 100%);
-            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.1);
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 40px;
+        }
+
+        header {
+            background: #0f1419;
+            border-bottom: 2px solid #d4af37;
+            padding: 30px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
 
         nav {
@@ -56,114 +41,45 @@
 
         .logo {
             font-family: 'Playfair Display', serif;
-            font-size: 36px;
+            font-size: 32px;
             font-weight: 900;
             color: #d4af37;
             letter-spacing: 2px;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .logo:hover {
-            text-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
         }
 
         nav ul {
             display: flex;
             list-style: none;
-            gap: 50px;
+            gap: 40px;
         }
 
         nav a {
             text-decoration: none;
-            color: #b0b0b0;
+            color: #a0a0a0;
             font-weight: 700;
             font-size: 14px;
             letter-spacing: 1px;
             text-transform: uppercase;
-            transition: all 0.3s;
-            position: relative;
-        }
-
-        nav a::before {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: #d4af37;
-            transition: width 0.3s;
-        }
-
-        nav a:hover::before {
-            width: 100%;
+            transition: color 0.3s;
         }
 
         nav a:hover {
             color: #d4af37;
         }
 
-        nav a.active {
-            color: #d4af37;
-        }
-
-        nav a.active::before {
-            width: 100%;
-        }
-
         .hero {
-            padding: 180px 0 140px 0;
+            padding: 120px 0;
             text-align: center;
-            background: linear-gradient(135deg, #0f1419 0%, #1a2332 50%, #0f1419 100%);
+            background: linear-gradient(135deg, #0f1419 0%, #1a2332 100%);
             border-bottom: 1px solid #d4af37;
-            margin-top: 80px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
-            animation: float 20s infinite linear;
-        }
-
-        @keyframes float {
-            0% { transform: translate(0, 0); }
-            100% { transform: translate(50px, 50px); }
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-        }
-
-        .hero-subtitle {
-            color: #d4af37;
-            font-size: 14px;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            margin-bottom: 20px;
-            font-weight: 700;
-            opacity: 0;
-            animation: fadeInUp 0.8s ease 0.2s forwards;
         }
 
         .hero h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 72px;
+            font-size: 64px;
             font-weight: 900;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
             color: #ffffff;
-            line-height: 1.2;
-            letter-spacing: -1px;
-            opacity: 0;
-            animation: fadeInUp 0.8s ease 0.4s forwards;
         }
 
         .hero p {
@@ -172,220 +88,129 @@
             max-width: 700px;
             margin: 0 auto 50px;
             line-height: 1.8;
-            opacity: 0;
-            animation: fadeInUp 0.8s ease 0.6s forwards;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
         }
 
         .cta-buttons {
             display: flex;
-            gap: 30px;
+            gap: 20px;
             justify-content: center;
             flex-wrap: wrap;
-            opacity: 0;
-            animation: fadeInUp 0.8s ease 0.8s forwards;
         }
 
         .btn {
-            padding: 18px 50px;
+            padding: 16px 40px;
             text-decoration: none;
             font-weight: 700;
             font-size: 14px;
             letter-spacing: 2px;
             text-transform: uppercase;
+            border: 2px solid #d4af37;
             transition: all 0.3s;
             cursor: pointer;
-            border: 2px solid transparent;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: rgba(212, 175, 55, 0.1);
-            transition: left 0.3s;
-            z-index: -1;
-        }
-
-        .btn:hover::before {
-            left: 0;
         }
 
         .btn-primary {
             background: #d4af37;
             color: #0f1419;
-            border: 2px solid #d4af37;
         }
 
         .btn-primary:hover {
             background: transparent;
             color: #d4af37;
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
         }
 
         .btn-secondary {
             background: transparent;
             color: #d4af37;
-            border: 2px solid #d4af37;
         }
 
         .btn-secondary:hover {
             background: #d4af37;
             color: #0f1419;
-            transform: translateY(-3px);
         }
 
         .features {
-            padding: 120px 0;
+            padding: 100px 0;
         }
 
-        .section-header {
+        .section-title {
             text-align: center;
-            margin-bottom: 80px;
+            margin-bottom: 60px;
         }
 
-        .section-header h2 {
+        .section-title h2 {
             font-family: 'Playfair Display', serif;
-            font-size: 52px;
+            font-size: 48px;
             font-weight: 900;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             color: #ffffff;
-            opacity: 0;
-            animation: fadeIn 0.8s ease forwards;
         }
 
-        .section-header p {
+        .section-title p {
             font-size: 18px;
             color: #a0a0a0;
-            max-width: 600px;
-            margin: 0 auto;
-            opacity: 0;
-            animation: fadeIn 0.8s ease 0.2s forwards;
         }
 
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
         }
 
         .feature-card {
-            background: linear-gradient(135deg, #1a2332 0%, #0f1419 100%);
+            background: #1a2332;
             border: 1px solid #d4af37;
-            padding: 50px;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeIn 0.6s ease forwards;
-        }
-
-        .feature-card:nth-child(1) { animation-delay: 0.1s; }
-        .feature-card:nth-child(2) { animation-delay: 0.2s; }
-        .feature-card:nth-child(3) { animation-delay: 0.3s; }
-        .feature-card:nth-child(4) { animation-delay: 0.4s; }
-        .feature-card:nth-child(5) { animation-delay: 0.5s; }
-        .feature-card:nth-child(6) { animation-delay: 0.6s; }
-        .feature-card:nth-child(7) { animation-delay: 0.7s; }
-        .feature-card:nth-child(8) { animation-delay: 0.8s; }
-
-        .feature-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 2px;
-            background: #d4af37;
-            transform: scaleX(0);
-            transition: transform 0.3s;
-            transform-origin: left;
-        }
-
-        .feature-card:hover::before {
-            transform: scaleX(1);
+            padding: 40px;
+            transition: all 0.3s;
         }
 
         .feature-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 50px rgba(212, 175, 55, 0.2);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.2);
         }
 
         .feature-icon {
-            font-size: 48px;
-            margin-bottom: 25px;
-            transition: transform 0.3s;
-        }
-
-        .feature-card:hover .feature-icon {
-            transform: scale(1.2) rotate(10deg);
+            font-size: 44px;
+            margin-bottom: 20px;
         }
 
         .feature-card h3 {
             font-family: 'Playfair Display', serif;
-            font-size: 24px;
-            margin-bottom: 15px;
+            font-size: 20px;
+            margin-bottom: 12px;
             color: #d4af37;
         }
 
         .feature-card p {
             color: #a0a0a0;
-            font-size: 16px;
-            line-height: 1.8;
+            font-size: 15px;
+            line-height: 1.7;
         }
 
-        .stats-section {
-            padding: 100px 0;
+        .stats {
+            padding: 80px 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 40px;
+            text-align: center;
             border-top: 1px solid #d4af37;
             border-bottom: 1px solid #d4af37;
         }
 
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 60px;
-            text-align: center;
-        }
-
-        .stat-item h3 {
+        .stat h3 {
             font-family: 'Playfair Display', serif;
-            font-size: 56px;
+            font-size: 48px;
             color: #d4af37;
             margin-bottom: 10px;
-            font-weight: 900;
-            counter-increment: stat-counter;
         }
 
-        .stat-item p {
+        .stat p {
             color: #a0a0a0;
-            font-size: 16px;
-            letter-spacing: 1px;
+            font-size: 14px;
         }
 
         .cta-section {
-            padding: 120px 0;
+            padding: 100px 0;
             text-align: center;
             background: linear-gradient(135deg, #1a2332 0%, #0f1419 100%);
             border-top: 1px solid #d4af37;
@@ -393,32 +218,29 @@
 
         .cta-section h2 {
             font-family: 'Playfair Display', serif;
-            font-size: 52px;
-            margin-bottom: 25px;
+            font-size: 48px;
+            margin-bottom: 20px;
             color: #ffffff;
         }
 
         .cta-section p {
             font-size: 18px;
             color: #a0a0a0;
-            margin-bottom: 50px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
+            margin-bottom: 40px;
         }
 
         footer {
-            background: linear-gradient(135deg, #0f1419 0%, #1a2332 100%);
+            background: #0f1419;
             border-top: 2px solid #d4af37;
-            padding: 50px 0;
+            padding: 40px 0;
             text-align: center;
             color: #707070;
+            font-size: 14px;
         }
 
         footer a {
             color: #d4af37;
             text-decoration: none;
-            transition: color 0.3s;
         }
 
         footer a:hover {
@@ -427,16 +249,11 @@
 
         @media (max-width: 768px) {
             .hero h1 {
-                font-size: 40px;
+                font-size: 36px;
             }
 
             nav ul {
                 gap: 20px;
-                font-size: 12px;
-            }
-
-            .section-header h2 {
-                font-size: 36px;
             }
 
             .cta-buttons {
@@ -455,14 +272,14 @@
     </style>
 </head>
 <body>
-    <header id="navbar">
+    <header>
         <div class="container">
             <nav>
                 <div class="logo">MANDY</div>
                 <ul>
-                    <li><a href="#features" class="nav-link">Features</a></li>
-                    <li><a href="#stats" class="nav-link">Performance</a></li>
-                    <li><a href="https://github.com/Manav-Patil-10/personal-ai-os" class="nav-link">GitHub</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#stats">Stats</a></li>
+                    <li><a href="https://github.com/Manav-Patil-10/personal-ai-os">GitHub</a></li>
                 </ul>
             </nav>
         </div>
@@ -470,196 +287,100 @@
 
     <section class="hero">
         <div class="container">
-            <div class="hero-content">
-                <div class="hero-subtitle">Premium AI Assistant</div>
-                <h1>Your Personal Operating System</h1>
-                <p>An intelligent assistant that remembers everything, manages your life, and respects your privacy. Enterprise-grade AI for the individual.</p>
-                <div class="cta-buttons">
-                    <a href="https://github.com/Manav-Patil-10/personal-ai-os/releases/download/v1.0.0/Mandy-Setup.exe" class="btn btn-primary">
-                        Download Now
-                    </a>
-                    <a href="https://github.com/Manav-Patil-10/personal-ai-os" class="btn btn-secondary">
-                        View Repository
-                    </a>
-                </div>
+            <h1>Your Personal AI Assistant</h1>
+            <p>Mandy reads your emails, manages your calendar, researches topics, organizes files, and remembers everything — all running on your computer.</p>
+            <div class="cta-buttons">
+                <a href="https://github.com/Manav-Patil-10/personal-ai-os/releases/download/v1.0.0/Mandy-Setup.exe" class="btn btn-primary">Download Now</a>
+                <a href="https://github.com/Manav-Patil-10/personal-ai-os" class="btn btn-secondary">View on GitHub</a>
             </div>
         </div>
     </section>
 
     <section class="features" id="features">
         <div class="container">
-            <div class="section-header">
-                <h2>Enterprise Features, Personal Touch</h2>
-                <p>Every feature built to enhance your productivity and protect your privacy</p>
+            <div class="section-title">
+                <h2>What Mandy Does</h2>
+                <p>Everything you need in one assistant</p>
             </div>
             <div class="features-grid">
                 <div class="feature-card">
                     <div class="feature-icon">📧</div>
-                    <h3>Email Intelligence</h3>
-                    <p>Master your inbox with AI-powered summarization, intelligent drafting, and automatic organization.</p>
+                    <h3>Smart Email</h3>
+                    <p>Read, summarize, and draft replies that save to Gmail automatically.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">📅</div>
-                    <h3>Calendar Mastery</h3>
-                    <p>Manage your time effortlessly. Create events, check schedules, and optimize your day.</p>
+                    <h3>Calendar</h3>
+                    <p>Check your schedule and create events with natural language.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">🔍</div>
-                    <h3>Research Engine</h3>
-                    <p>Advanced web research with intelligent summarization. Knowledge saved automatically to your vault.</p>
+                    <h3>Research</h3>
+                    <p>Ask Mandy to research topics. She finds, summarizes, and saves.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">✅</div>
-                    <h3>Task Orchestration</h3>
-                    <p>Natural language task management with intelligent reminders and progress tracking.</p>
+                    <h3>Tasks</h3>
+                    <p>Add, track, and manage tasks through natural conversation.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">📁</div>
-                    <h3>File Organization</h3>
-                    <p>Automatic file categorization and organization. Chaos becomes structure instantly.</p>
+                    <h3>File Organizer</h3>
+                    <p>Auto-sorts your Downloads and Documents into categories.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">🧠</div>
-                    <h3>Persistent Memory</h3>
-                    <p>Every conversation remembered. Every preference learned. Your AI gets smarter with time.</p>
+                    <h3>Memory</h3>
+                    <p>Remembers every conversation and learns from your habits.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">⏰</div>
-                    <h3>Intelligent Reminders</h3>
-                    <p>Hourly task reminders and daily reviews. Progress tracked from day one with detailed analytics.</p>
+                    <h3>Reminders</h3>
+                    <p>Hourly task reminders and daily reviews with progress tracking.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">🔐</div>
-                    <h3>Privacy First</h3>
-                    <p>100% open source. Runs locally on your machine. Your data never leaves your computer.</p>
+                    <h3>Privacy</h3>
+                    <p>100% open source. Runs locally. Your data stays on your computer.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="stats-section" id="stats">
+    <section class="stats" id="stats">
         <div class="container">
-            <div class="stats-grid">
-                <div class="stat-item">
-                    <h3 class="stat-counter" data-target="8">0</h3>
-                    <p>Complete Phases</p>
-                </div>
-                <div class="stat-item">
-                    <h3 class="stat-counter" data-target="6">0</h3>
-                    <p>Premium Features</p>
-                </div>
-                <div class="stat-item">
-                    <h3>100%</h3>
-                    <p>Open Source</p>
-                </div>
-                <div class="stat-item">
-                    <h3>∞</h3>
-                    <p>Free Forever</p>
-                </div>
+            <div class="stat">
+                <h3>8</h3>
+                <p>Complete Phases</p>
+            </div>
+            <div class="stat">
+                <h3>6+</h3>
+                <p>Features</p>
+            </div>
+            <div class="stat">
+                <h3>100%</h3>
+                <p>Open Source</p>
+            </div>
+            <div class="stat">
+                <h3>Free</h3>
+                <p>Forever</p>
             </div>
         </div>
     </section>
 
     <section class="cta-section">
         <div class="container">
-            <h2>Transform Your Productivity</h2>
-            <p>Experience the future of personal AI. Download Mandy today and take control of your digital life.</p>
-            <a href="https://github.com/Manav-Patil-10/personal-ai-os/releases/download/v1.0.0/Mandy-Setup.exe" class="btn btn-primary">
-                Download Mandy
-            </a>
+            <h2>Ready to Meet Your AI?</h2>
+            <p>Download Mandy and start getting things done with AI that actually learns from you.</p>
+            <a href="https://github.com/Manav-Patil-10/personal-ai-os/releases/download/v1.0.0/Mandy-Setup.exe" class="btn btn-primary">Download Mandy</a>
         </div>
     </section>
 
     <footer>
         <div class="container">
-            <p>&copy; 2026 Mandy — Premium Personal AI</p>
+            <p>&copy; 2026 Mandy — Personal AI OS</p>
             <p><a href="https://github.com/Manav-Patil-10/personal-ai-os">GitHub</a> • <a href="https://github.com/Manav-Patil-10">Creator</a></p>
         </div>
     </footer>
-
-    <script>
-        // Smooth scroll for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth' });
-                }
-            });
-        });
-
-        // Navbar styling on scroll
-        window.addEventListener('scroll', () => {
-            const navbar = document.getElementById('navbar');
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-
-            // Update active nav link
-            let current = '';
-            document.querySelectorAll('section').forEach(section => {
-                const sectionTop = section.offsetTop;
-                if (pageYOffset >= sectionTop - 200) {
-                    current = section.getAttribute('id');
-                }
-            });
-
-            document.querySelectorAll('.nav-link').forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === '#' + current) {
-                    link.classList.add('active');
-                }
-            });
-        });
-
-        // Animate counters
-        function animateCounters() {
-            const counters = document.querySelectorAll('.stat-counter');
-            counters.forEach(counter => {
-                const target = parseInt(counter.getAttribute('data-target'));
-                let current = 0;
-                const increment = target / 30;
-
-                const updateCounter = () => {
-                    current += increment;
-                    if (current < target) {
-                        counter.textContent = Math.floor(current);
-                        setTimeout(updateCounter, 50);
-                    } else {
-                        counter.textContent = target;
-                    }
-                };
-
-                updateCounter();
-            });
-        }
-
-        // Intersection Observer for animations
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                    if (entry.target.classList.contains('stat-item')) {
-                        animateCounters();
-                    }
-                }
-            });
-        }, { threshold: 0.1 });
-
-        document.querySelectorAll('.feature-card, .stat-item').forEach(el => {
-            observer.observe(el);
-        });
-
-        // Parallax effect on hero
-        window.addEventListener('scroll', () => {
-            const hero = document.querySelector('.hero');
-            const scrolled = window.pageYOffset;
-            hero.style.backgroundPosition = `0 ${scrolled * 0.5}px`;
-        });
-    </script>
 </body>
 </html>
