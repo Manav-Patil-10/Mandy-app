@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Settings</title>
+    <style>
+        body { background: #0f1419; color: #fff; font-family: Arial; margin: 0; }
+        .box { max-width: 600px; margin: 50px auto; background: #1a2332; padding: 40px; border: 1px solid #d4af37; border-radius: 10px; }
+        h1 { color: #d4af37; }
+        .key { background: #0f1419; padding: 10px; border: 1px solid #d4af37; color: #d4af37; border-radius: 5px; word-break: break-all; font-family: monospace; margin: 10px 0; }
+        button { padding: 10px 20px; background: #d4af37; color: #0f1419; border: none; font-weight: bold; border-radius: 5px; cursor: pointer; }
+        button:hover { background: #fff; }
+        a { color: #d4af37; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h1>Settings</h1>
+        <p>API Key:</p>
+        <div class="key" id="key">Loading...</div>
+        <button onclick="genKey()">Generate New Key</button>
+        <button onclick="copyKey()" style="margin-left: 10px;">Copy</button>
+        <br><br>
+        <a href="/dashboard">← Back</a>
+    </div>
+    <script>
+        async function load() {
+            const res = await fetch('/api/user');
+            const data = await res.json();
+            document.getElementById('key').textContent = data.api_key || 'None';
+        }
+        async function genKey() {
+            const res = await fetch('/api/generate-key', {method: 'POST'});
+            const data = await res.json();
+            document.getElementById('key').textContent = data.api_key;
+            alert('New key generated!');
+        }
+        function copyKey() {
+            const key = document.getElementById('key').textContent;
+            navigator.clipboard.writeText(key);
+            alert('Copied!');
+        }
+        load();
+    </script>
+</body>
+</html>
